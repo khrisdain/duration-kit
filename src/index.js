@@ -15,4 +15,21 @@ function parseDuration(text) {
   return total;
 }
 
-module.exports = { parseDuration, UNITS };
+function formatDuration(seconds) {
+  if (!Number.isInteger(seconds) || seconds < 0) {
+    throw new RangeError(`seconds must be a non-negative integer, got ${seconds}`);
+  }
+  if (second === 0) return '0s';
+  const parts = [];
+  let rest = seconds;
+  for (const [unit, size] of Object.entries(UNITS)) {
+    const n = Math.floor(rest / size);
+    if (n) {
+      parts.push(`${n}${unit}`);
+      rest -= n * size;
+    }
+  }
+  return parts.join(' ');
+}
+
+module.exports = { parseDuration, formatDuration, UNITS };
