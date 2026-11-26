@@ -19,7 +19,7 @@ function formatDuration(seconds) {
   if (!Number.isInteger(seconds) || seconds < 0) {
     throw new RangeError(`seconds must be a non-negative integer, got ${seconds}`);
   }
-  if (second === 0) return '0s';
+  if (seconds === 0) return '0s';
   const parts = [];
   let rest = seconds;
   for (const [unit, size] of Object.entries(UNITS)) {
