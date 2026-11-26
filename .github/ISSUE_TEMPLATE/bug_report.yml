@@ -1,0 +1,30 @@
+name: Bug report
+description: Report a duration that parses or formats incorrectly
+labels: [bug]
+body: 
+  - type: input
+    id: input
+    attributes: 
+      label: Input
+      placeholder: "1h 30m"
+    validations:
+      required: true
+  - type: input
+    id: expected
+    attributes: 
+      label: Expected result
+    validations:
+      required: true
+  - type: input
+    id: actual
+    attributes:
+      label: Actual result
+    validations:
+      required: true
+  - type: dropdown
+    id: node
+    attributes:
+      label: Node version
+      options: ["20", "22", "Other"]
+    validations:
+      required: true
